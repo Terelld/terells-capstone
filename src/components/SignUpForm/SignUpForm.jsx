@@ -8,6 +8,10 @@ export default class SignUpForm extends Component {
         email: '',
         password: '',
         confirm: '',
+        primary_instrument: [],
+        secondary_instrument: [],
+        bio: '',
+        city: '',
         error: ''
     }
 
@@ -51,6 +55,53 @@ export default class SignUpForm extends Component {
                 <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
                 <label>Confirm</label>
                 <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+                <label>Instrument:</label>
+                <select
+                  id="primary_instrument"
+                  name="primary_instrument"
+                  value={this.state.instrument}
+                  onChange={this.handlePrimartyInstrumentChange}
+                  required
+                >
+                  <option value="">Select an instrument</option>
+                  <option value="Guitar">Guitar</option>
+                  <option value="Keys">Keys</option>
+                  <option value="Violin">Violin</option>
+                  <option value="Cello">Cello</option>
+                  <option value="Viola">Viola</option>
+                  <option value="Upright Bass">Violin</option>
+                  <option value="Singer">Singer</option>
+                  <option value="BG_Vocals">Background Vocals</option>
+                  <option value="Drums">Drums</option>
+                </select>
+                <label>Second Instrument:</label>
+                <select
+                  id="secondary_instrument"
+                  name="secondary_instrument"
+                  multiple
+                  value={this.state.instrument}
+                  onChange={this.handleSecondaryInstrumentChange}
+                  required
+                >
+                  <option value="">Select an instrument</option>
+                  <option value="Guitar">Guitar</option>
+                  <option value="Keys">Keys</option>
+                  <option value="Violin">Violin</option>
+                  <option value="Cello">Cello</option>
+                  <option value="Viola">Viola</option>
+                  <option value="Upright Bass">Violin</option>
+                  <option value="Singer">Singer</option>
+                  <option value="BG_Vocals">Background Vocals</option>
+                  <option value="Drums">Drums</option>
+                </select>
+                <label>Bio:</label>
+                <textarea 
+                  type="bio" 
+                  name="bio" 
+                  value={this.state.bio} 
+                  onChange={this.handleChange} 
+                  placeholder= "share your story" 
+                  required />
                 <button type="submit" disabled={disable}>SIGN UP</button>
               </form>
             </div>
