@@ -14,6 +14,10 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
+app.get('/config/uscities.csv', (req, res) => {
+  res.sendFile(path.join(__dirname, 'config', 'uscities.csv'));
+});
+
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
