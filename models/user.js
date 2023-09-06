@@ -22,7 +22,11 @@ const userSchema = new Schema({
         trim: true,
         minLength: 3,
         required: true
-    }
+    },
+    primary_instrument: [String],
+    secondary_instrument: [String],
+    bio: String,
+    city: String,
 }, {
     timstamps: true,
     toJson: {

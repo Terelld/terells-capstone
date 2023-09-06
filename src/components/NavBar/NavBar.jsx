@@ -13,6 +13,8 @@ export default function NavBar({ user, setUser }) {
         <nav>
             <Link to="/bandmate/user-profile">My Profile</Link>
             &nbsp; | &nbsp;
+            <Link to="/bandmate/members">BandMate Members</Link>
+            &nbsp; | &nbsp;
             <Link to="/bandmate">Order History</Link>
             &nbsp; | &nbsp;
             <Link to="/bandmate/new">New Order</Link>

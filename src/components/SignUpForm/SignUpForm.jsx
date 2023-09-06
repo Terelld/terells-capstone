@@ -1,29 +1,36 @@
 import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
 
-import CitiesAutoComplete, { handleCityChange } from '../CitiesAutoComplete/CitiesAutoComplete';
+import CitiesAutoComplete from '../CitiesAutoComplete/CitiesAutoComplete';
+
+const userInput = {
+  name: '',
+  email: '',
+  age: 30,
+  primary_instrument: [],
+  secondary_instrument: [],
+  bio: '',
+  city: '',
+};
+
+// Create a user object based on user input
+const user = {
+  name: userInput.name,
+  email: userInput.email,
+  age: userInput.age,
+  primary_instrument: userInput.primary_instrument,
+  secondary_instrument:userInput.secondary_instrument,
+  bio: userInput.bio,
+  city: userInput.city,
+};
 
 
 
 
-
-function parseCsv(csvData) {
-  const lines = csvData.split('\n');
-  const cities = [];
-
-  for (let i = 1; i < lines.length; i++) {
-    const columns = lines[i].split(',');
-    
-    const city = columns[0];
-    const state = columns[3];
-    const id = columns[16];
-    cities.push({ city, state });
-  }
-    
-    return cities;
-  }
 
 export default class SignUpForm extends Component {
+
+
 
     state = {
         name: '',
@@ -39,19 +46,6 @@ export default class SignUpForm extends Component {
         error: ''
     }
 
-    componentDidMount() {
-      fetch('/config/uscities.csv')
-        .then((response) => response.text())
-        .then((csvData) => {
-          console.log(csvData);
-          const cities = parseCsv(csvData);
-          
-          this.setState({ cities });
-        })
-        .catch((error) => {
-          console.error('Error fetching CSV data:', error);
-        });
-    }
 
     handleSubmit = async (evt) => {
       // prevent form from being submitted to th server  

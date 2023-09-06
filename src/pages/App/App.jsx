@@ -6,8 +6,10 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
+import UserListPage from '../UserListPage/UserListPage';
 
 import { getUser } from '../../utilities/users-service';
+
 
 
 export default function App() {
@@ -19,7 +21,8 @@ export default function App() {
         <>
           <NavBar user={ user }  setUser={ setUser }/>
           <Routes>
-            <Route path="/bandmate/user-profile" element={<UserProfilePage />} />
+            <Route path="/bandmate/user-profile" element={<UserProfilePage user={user} />} />
+            <Route path="/bandmate/members" element={<UserListPage />} />
             <Route path="/bandmate/new" element={<NewOrderPage />} />
             <Route path="/bandmate" element={<OrderHistoryPage />} />
           </Routes>
