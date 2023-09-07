@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const cors = require('cors');
 
 //always require and configure near top!!
 require('dotenv').config();
@@ -13,6 +14,7 @@ const app = express();
    
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 
 app.get('/config/uscities.csv', (req, res) => {
   res.sendFile(path.join(__dirname, 'config', 'uscities.csv'));
@@ -25,10 +27,9 @@ app.use(require('./config/checkToken'));
 
 const port = process.env.PORT || 3001;
 
-// Put API routes here, before the "catch all" route
+
 app.use('/api/users', require('./routes/api/users'))
-// The following "catch all" route (note the *) is necessary
-// to return the index.html on all non-AJAX requests
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });

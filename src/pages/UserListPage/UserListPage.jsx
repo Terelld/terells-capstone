@@ -1,22 +1,28 @@
-
-import userEvent from "@testing-library/user-event";
 import UserCard from "../../UserCard/UserCard.js";
-
+import { useState, useEffect } from 'react';
 
 export default function UserListPage() {
-  const allUsersSet = new Set();
+  const [users, setUsers] = useState([]);
 
-
-  const allUsers = Array.from(allUsersSet);
+  useEffect(() => {
+   
+    fetch('api/users') 
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => setUsers(data))
+      .catch((error) => console.error('Error fetching user data:', error));
+  }, []);
 
   return (
     <div>
-      <h1>BandMate Member List</h1>
-      <div className="user-list">
-        {allUsers.map((user, index) => (
-          <div key={index} className="user-card">
-            {user}
-          </div>
+      <h1>User List</h1>
+      <div className="user-cards">
+        {users.map((user) => (
+          <UserCard key={user._id} user={user} />
         ))}
       </div>
     </div>

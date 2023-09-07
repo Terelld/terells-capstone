@@ -23,10 +23,26 @@ const userSchema = new Schema({
         minLength: 3,
         required: true
     },
-    primary_instrument: [String],
-    secondary_instrument: [String],
-    bio: String,
-    city: String,
+    primary_instrument: {
+        type:String, 
+        required: false,
+    },
+    secondary_instrument: {
+        type:String, 
+        required: false
+    },
+    bio: {
+        type:String, 
+        required: true,
+    },
+    city: {
+        type:String, 
+        required: false,
+    },
+    dob: {
+        type: Date, 
+        required: true,
+    },
 }, {
     timstamps: true,
     toJson: {

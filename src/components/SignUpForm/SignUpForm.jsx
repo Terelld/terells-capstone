@@ -6,9 +6,9 @@ import CitiesAutoComplete from '../CitiesAutoComplete/CitiesAutoComplete';
 const userInput = {
   name: '',
   email: '',
-  age: 30,
-  primary_instrument: [],
-  secondary_instrument: [],
+  dob: '',
+  primary_instrument: '',
+  secondary_instrument: '',
   bio: '',
   city: '',
 };
@@ -17,9 +17,9 @@ const userInput = {
 const user = {
   name: userInput.name,
   email: userInput.email,
-  age: userInput.age,
+  dob: userInput.dob,
   primary_instrument: userInput.primary_instrument,
-  secondary_instrument:userInput.secondary_instrument,
+  secondary_instrument: userInput.secondary_instrument,
   bio: userInput.bio,
   city: userInput.city,
 };
@@ -38,11 +38,11 @@ export default class SignUpForm extends Component {
         email: '',
         password: '',
         confirm: '',
-        primary_instrument: [],
-        secondary_instrument: [],
+        primary_instrument: '',
+        secondary_instrument: '',
         bio: '',
         city: '',
-        cities: [],
+       
         error: ''
     }
 
@@ -56,8 +56,15 @@ export default class SignUpForm extends Component {
           delete formData.error;
           delete formData.confirm;
 
+          console.log(formData);
+
           const user = await signUp(formData);
           this.props.setUser(user);
+
+          this.props.history.push("/bandmate/user-profile", {
+            city: this.state.city,
+            primary_instrument: this.state.primary_instrument,
+          });
 
         } catch {
           //An error occured
@@ -67,11 +74,18 @@ export default class SignUpForm extends Component {
     }
 
     handleChange = (evt) => {
+      console.log('handleChange() called');
         this.setState({
             [evt.target.name]: evt.target.value,
             error: ''
         })
     }
+
+    handlePrimartyInstrumentChange = (evt) => {
+      this.setState({
+        primary_instrument: evt.target.value,
+      });
+    };
 
 
 
@@ -102,10 +116,11 @@ export default class SignUpForm extends Component {
                 />
 
                 <label>City:</label>
-                <CitiesAutoComplete
+                <input
+                  type="text"
                   name="city"
                   value={this.state.city}
-                  onChange={this.handleCityChange}
+                  onChange={this.handleChange}
                   required
                 />
 
@@ -142,6 +157,7 @@ export default class SignUpForm extends Component {
                   name="primary_instrument"
                   value={this.state.instrument}
                   onChange={this.handlePrimartyInstrumentChange}
+                  disabled={false}
                   required
                 >
                   <option value="">Select your primary instrument!</option>

@@ -15,10 +15,8 @@ export default function NavBar({ user, setUser }) {
             &nbsp; | &nbsp;
             <Link to="/bandmate/members">BandMate Members</Link>
             &nbsp; | &nbsp;
-            <Link to="/bandmate">Order History</Link>
-            &nbsp; | &nbsp;
-            <Link to="/bandmate/new">New Order</Link>
-            &nbsp; | &nbsp;
+            
+    
             <span>Welcome,  { user.name }</span>
             &nbsp; | &nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
         </nav>

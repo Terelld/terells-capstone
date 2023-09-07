@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export default function UserProfilePage({ user, setUser }) {
+    console.log(user.primary_instrument);
     const { userId } = useParams();
     const [userData, setUserData] = useState(null); // State to store user data
 
@@ -23,11 +24,13 @@ export default function UserProfilePage({ user, setUser }) {
     useEffect(() => {
         fetchUserData();
     }, [userId]); 
+
+
     return (
     <div>
-    
-        <h1>Profile</h1>
+        <h1>Member Profile</h1>
         <p>Name: {user.name}</p>
+        <p>DOB: {user.dob}</p>
         <p>City: {user.city}</p>
         <p>Instument(s): {user.primary_instrument}</p>
         {user.secondary_instrument && (
@@ -37,4 +40,5 @@ export default function UserProfilePage({ user, setUser }) {
     </div>
 
     );
-}
+    
+};
