@@ -5,8 +5,16 @@ export default function UserProfilePage({ user, setUser }) {
     console.log(user.primary_instrument);
     const { userId } = useParams();
     const [userData, setUserData] = useState(null); // State to store user data
+    const instruments = [];
 
-    // Function to fetch user data
+    if (user.primary_instrument) {
+      instruments.push(user.primary_instrument);
+    }
+  
+    if (user.secondary_instrument) {
+      instruments.push(user.secondary_instrument);
+    }
+   
     const fetchUserData = async () => {
         try {
             const response = await fetch(`/api/users/${userId}`); // Replace with your API endpoint
@@ -23,7 +31,9 @@ export default function UserProfilePage({ user, setUser }) {
     // Fetch user data when the component mounts
     useEffect(() => {
         fetchUserData();
-    }, [userId]); 
+    }, [userId, user.primary_instrument]); 
+
+
 
 
     return (
@@ -32,10 +42,8 @@ export default function UserProfilePage({ user, setUser }) {
         <p>Name: {user.name}</p>
         <p>DOB: {user.dob}</p>
         <p>City: {user.city}</p>
-        <p>Instument(s): {user.primary_instrument}</p>
-        {user.secondary_instrument && (
-        <p>Secondary Instrument: {user.secondary_instrument}</p>
-        )}
+        <p>Instument: {user.primary_instrument}</p>
+        {/* <p>Instument(s): {user.primary_instrument} {user.secondary_instrument ? `, ${user.secondary_instrument}` : ''}</p> */}
         <p>About me... {user.bio}</p>
     </div>
 

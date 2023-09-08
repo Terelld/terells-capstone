@@ -1,0 +1,27 @@
+.user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 200px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem;
+    transition: transform 0.3s;
+    cursor: pointer;
+    opacity: 3;
+  }
+  
+  .movie-details {
+    color: white;
+  }
+  
+  .user-card:hover {
+    transform: scale(1.05);
+    opacity: 0.8; /* Adjust opacity on hover */
+  }
+  

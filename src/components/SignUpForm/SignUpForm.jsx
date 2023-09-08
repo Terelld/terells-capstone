@@ -87,6 +87,12 @@ export default class SignUpForm extends Component {
       });
     };
 
+    handleSecondaryInstrumentChange = (evt) => {
+      this.setState({
+        primary_instrument: evt.target.value,
+      });
+    };
+
 
 
     render() {
@@ -94,7 +100,7 @@ export default class SignUpForm extends Component {
         console.log(this.state.cities)
         return (
           <div>
-            <div className="form-container">
+            <div className="user-card">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
                 <label>Name</label>
                 <input 
@@ -124,7 +130,58 @@ export default class SignUpForm extends Component {
                   required
                 />
 
-                <label>Email</label>
+                
+
+                <label>Instrument:</label>
+                <select
+                  id="primary_instrument"
+                  name="primary_instrument"
+                  value={this.state.instrument}
+                  onChange={this.handlePrimartyInstrumentChange}
+                  disabled={false}
+                  required
+                >
+                  <option value="">Select your primary instrument!</option>
+                  <option value="Guitar">Guitar</option>
+                  <option value="Keys">Keys</option>
+                  <option value="Violin">Violin</option>
+                  <option value="Cello">Cello</option>
+                  <option value="Viola">Viola</option>
+                  <option value="Upright Bass">Upright Bass</option>
+                  <option value="Singer">Singer</option>
+                  <option value="BG_Vocals">Background Vocals</option>
+                  <option value="Drums">Drums</option>
+                </select>
+
+                {/* <label>Second Instrument (optional):</label>
+                <select
+                  id="secondary_instrument"
+                  name="secondary_instrument"
+                  value={this.state.instrument}
+                  onChange={this.handleSecondaryInstrumentChange}
+                >
+                  <option value="">Play a second instrument?</option>
+                  <option value="Guitar">Guitar</option>
+                  <option value="Keys">Keys</option>
+                  <option value="Violin">Violin</option>
+                  <option value="Cello">Cello</option>
+                  <option value="Viola">Viola</option>
+                  <option value="Upright Bass">Upright Bass</option>
+                  <option value="Singer">Singer</option>
+                  <option value="BG_Vocals">Background Vocals</option>
+                  <option value="Drums">Drums</option>
+                </select> */}
+
+                <label>Bio:</label>
+                <textarea 
+                  type="bio" 
+                  name="bio" 
+                  value={this.state.bio} 
+                  onChange={this.handleChange} 
+                  placeholder= "share your story" 
+                  required />
+
+<label>Email</label>
                 <input 
                   type="email" 
                   name="email" 
@@ -150,55 +207,6 @@ export default class SignUpForm extends Component {
                   onChange={this.handleChange} 
                   required 
                   />
-
-                <label>Primary Instrument (required):</label>
-                <select
-                  id="primary_instrument"
-                  name="primary_instrument"
-                  value={this.state.instrument}
-                  onChange={this.handlePrimartyInstrumentChange}
-                  disabled={false}
-                  required
-                >
-                  <option value="">Select your primary instrument!</option>
-                  <option value="Guitar">Guitar</option>
-                  <option value="Keys">Keys</option>
-                  <option value="Violin">Violin</option>
-                  <option value="Cello">Cello</option>
-                  <option value="Viola">Viola</option>
-                  <option value="Upright Bass">Violin</option>
-                  <option value="Singer">Singer</option>
-                  <option value="BG_Vocals">Background Vocals</option>
-                  <option value="Drums">Drums</option>
-                </select>
-
-                <label>Second Instrument (optional):</label>
-                <select
-                  id="secondary_instrument"
-                  name="secondary_instrument"
-                  value={this.state.instrument}
-                  onChange={this.handleSecondaryInstrumentChange}
-                >
-                  <option value="">Play a second instrument?</option>
-                  <option value="Guitar">Guitar</option>
-                  <option value="Keys">Keys</option>
-                  <option value="Violin">Violin</option>
-                  <option value="Cello">Cello</option>
-                  <option value="Viola">Viola</option>
-                  <option value="Upright Bass">Violin</option>
-                  <option value="Singer">Singer</option>
-                  <option value="BG_Vocals">Background Vocals</option>
-                  <option value="Drums">Drums</option>
-                </select>
-
-                <label>Bio:</label>
-                <textarea 
-                  type="bio" 
-                  name="bio" 
-                  value={this.state.bio} 
-                  onChange={this.handleChange} 
-                  placeholder= "share your story" 
-                  required />
                 <button type="submit" disabled={disable}>SIGN UP</button>
               </form>
             </div>
