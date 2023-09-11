@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import UserCard from '../../UserCard/UserCard.js';
+import "./UserListPage.css";
+import { Link } from 'react-router-dom';
+
 
 export default function UserListPage() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     // Fetch users from the server's API endpoint
@@ -19,15 +22,23 @@ export default function UserListPage() {
       });
   }, []);
 
-  return (
-    <div>
+    return (
+
+      <div>
       <h1>User List</h1>
       <div className="user-list">
         {loading ? (
           <p>Loading...</p>
         ) : (
           users.map((user, index) => (
-            <UserCard key={index} user={user} />
+            <Link
+              key={index}
+              to={`/bandmate/members/profile/${encodeURIComponent(user._id.toString())}`}
+              // to={`/users/${encodeURIComponent(user.userID)}`} // Adjust the route path as needed
+              className="user-link"
+            >
+              <UserCard key={index} user={user} />
+            </Link>
           ))
         )}
       </div>

@@ -1,0 +1,19 @@
+.user-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    gap: 20px; /* Gap between columns and rows */
+    color: white;
+    text-decoration: none;
+    opacity: 5;
+  }
+  
+  .user-link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .user-card:hover {
+    transform: scale(1.05);
+    opacity: 3; /* Adjust opacity on hover */
+  }
+  

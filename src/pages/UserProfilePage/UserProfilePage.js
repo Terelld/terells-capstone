@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export default function UserProfilePage({ user, setUser }) {
-    console.log(user.primary_instrument);
     const { userId } = useParams();
     const [userData, setUserData] = useState(null); // State to store user data
     const instruments = [];
@@ -48,5 +47,4 @@ export default function UserProfilePage({ user, setUser }) {
     </div>
 
     );
-    
 };

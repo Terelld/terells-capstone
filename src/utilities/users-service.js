@@ -34,3 +34,6 @@ export function logOut() {
 export function checkToken() {
     return usersAPI.checkToken().then(dateStr => new Date(dateStr));
 }
+
+
+  

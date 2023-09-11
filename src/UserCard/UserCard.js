@@ -2,6 +2,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+
 export default function UserCard({ user, setUser }) {
     const { userId } = useParams();
     const [userData, setUserData] = useState(null); // State to store user data
@@ -28,10 +29,10 @@ export default function UserCard({ user, setUser }) {
     <div className="user-card">
         <p>Name: {user.name}</p>
         <p>City: {user.city}</p>
-        <p>Instument(s): {user.primary_instrument}</p>
-        {user.secondary_instrument && (
-        <p>Secondary Instrument: {user.secondary_instrument}</p>
-        )}  
+        <p>Instument: {user.primary_instrument}</p>
+        {/* {user.secondary_instrument && (
+        <p>Secondary Instrument: {user.secondary_instrument}</p> */}
+        {/* )}   */}
     </div>
 
     );
