@@ -2,7 +2,10 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-const cors = require('cors');
+
+const User = require('./models/user');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 //always require and configure near top!!
 
@@ -18,11 +21,12 @@ const app = express();
    
 app.use(logger('dev'));
 app.use(express.json());
-app.use(cors());
+
 
 app.get('/config/uscities.csv', (req, res) => {
   res.sendFile(path.join(__dirname, 'config', 'uscities.csv'));
 });
+
 
 
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));

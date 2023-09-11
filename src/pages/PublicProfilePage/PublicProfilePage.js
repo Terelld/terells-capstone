@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 
 
 
-export default function PublicProfilePage(user, setUser) {
-    const [userData, setUserData] = useState(null);
+export default function PublicProfilePage({ userData, setUserData }) {
     const { userId } = useParams();
   
     const fetchUserData = async () => {

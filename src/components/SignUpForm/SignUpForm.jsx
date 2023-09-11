@@ -181,7 +181,7 @@ export default class SignUpForm extends Component {
                   placeholder= "share your story" 
                   required />
 
-<label>Email</label>
+                <label>Email</label>
                 <input 
                   type="email" 
                   name="email" 

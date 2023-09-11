@@ -1,23 +1,13 @@
 import { Component } from "react";
-import sendRequest from '../../utilities/send-request';
-import { BASE_URL } from '../../utilities/users-api';
+import { login } from '../../utilities/users-service';
 
-export async function login(credentials) {
-  try {
-    const response = await sendRequest(`${BASE_URL}/login`, `POST`, credentials);
-    // Handle the response and return any necessary data
-    return response;
-  } catch (error) {
-    // Handle errors, such as network errors or authentication failures
-    throw new Error('Login failed: ' + error.message);
-  }
-}
+
 
 export default class SignInForm extends Component {
   constructor() {
     super();
     this.state = {
-      loginData: {
+      credentials: {
         email: "",
         password: "",
       },
@@ -27,20 +17,23 @@ export default class SignInForm extends Component {
 
   handleLoginSubmit = async (e) => {
     e.preventDefault();
-    const { loginData } = this.state;
+    const { credentials } = this.state;
+    console.log("Credentials: ", credentials);
 
     try {
-      // Call the login function defined at the module level
-      const result = await login(loginData);
+      const user = await login(credentials);
+      console.log(user);
+      this.props.setUser(user);
+      
 
-      // Handle the result, e.g., update UI or redirect on successful login
+      
     } catch (error) {
       this.setState({ loginError: error.message });
     }
   };
 
   render() {
-    const { loginData } = this.state;
+    const { credentials } = this.state;
 
     return (
       <form onSubmit={this.handleLoginSubmit}>
@@ -50,10 +43,10 @@ export default class SignInForm extends Component {
           id="email"
           name="email"
           required
-          value={loginData.email}
+          value={credentials.email}
           onChange={(e) =>
             this.setState({
-              loginData: { ...loginData, email: e.target.value },
+              credentials: { ...credentials, email: e.target.value },
             })
           }
         />
@@ -64,10 +57,10 @@ export default class SignInForm extends Component {
           id="password"
           name="password"
           required
-          value={loginData.password}
+          value={credentials.password}
           onChange={(e) =>
             this.setState({
-              loginData: { ...loginData, password: e.target.value },
+              credentials: { ...credentials, password: e.target.value },
             })
           }
         />
