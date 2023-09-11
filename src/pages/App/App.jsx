@@ -8,6 +8,7 @@ import UserListPage from '../UserListPage/UserListPage';
 import PublicProfilePage from '../PublicProfilePage/PublicProfilePage';
 import { useParams } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
+import EditProfilePage from '../EditProfilePage/EditProfilePage';
 
 
 
@@ -21,8 +22,10 @@ export default function App() {
           <NavBar user={ user }  setUser={ setUser }/>
           <Routes>
             <Route path="/bandmate/user-profile" element={<UserProfilePage user={user} />} />
+            <Route path="/bandmate/user-profile/update/:userId" element={<EditProfilePage user={user} />} />
             <Route path="/bandmate/members" element={<UserListPage />} /> 
             <Route path="/bandmate/members/profile/:userId" element={<PublicProfilePage user={user} />} /> 
+            
           </Routes>
         </>
         :

@@ -12,6 +12,20 @@ export async function signUp(userData) {
     return getUser();
 } 
 
+export async function updateUserData(updatedUserData) {
+    try {
+      const response = await usersAPI.updateUserData(updatedUserData);
+      
+      if (!response.success) {
+        throw new Error(response.message);
+      }
+  
+      return response.user;
+    } catch (error) {
+      throw new Error('Update failed: ' + error.message);
+    }
+  }
+
 
 
 export async function login(credentials) {

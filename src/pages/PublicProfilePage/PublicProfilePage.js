@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 export default function PublicProfilePage() {
     const { userId } = useParams();
     const [userData, setUserData] = useState(null); 
-    console.log(userData);
     
     const fetchUserData = async () => {
       
@@ -16,11 +15,8 @@ export default function PublicProfilePage() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log('This is the data in fetch', data);
         setUserData(data);
-        console.log('data:', data);
-        console.log('userId:', userId);
-
+        
       } catch (error) {
         console.error(error);
       }

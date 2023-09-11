@@ -10,11 +10,13 @@ router.post('/login', usersCtrl.login);
 
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
+router.put('/:userId', ensureLoggedIn, usersCtrl.updateProfile);
+
 router.get('/', async (req, res) => {
   try {
       // Query the database to get all users
     const users = await User.find();
-    console.log('I am here?');
+    
       // Return the user data as JSON
     res.json(users);
   } catch (error) {
@@ -29,7 +31,7 @@ router.get('/:userId', async (req, res) => {
     const userId = req.params.userId;
       // Query the database to get all users
     const user = await User.findById(userId);
-    console.log('I am here?');
+    
       // Return the user data as JSON
     res.json(user);
   } catch (error) {

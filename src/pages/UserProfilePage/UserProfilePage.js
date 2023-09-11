@@ -1,5 +1,6 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
 
 export default function UserProfilePage({ user, setUser }) {
     const { userId } = useParams();
@@ -36,15 +37,17 @@ export default function UserProfilePage({ user, setUser }) {
 
 
     return (
-    <div>
-        <h1>Member Profile</h1>
+        <div>
+        <h1>My Profile</h1>
         <p>Name: {user.name}</p>
         <p>DOB: {user.dob}</p>
         <p>City: {user.city}</p>
-        <p>Instument: {user.primary_instrument}</p>
-        {/* <p>Instument(s): {user.primary_instrument} {user.secondary_instrument ? `, ${user.secondary_instrument}` : ''}</p> */}
-        <p>About me... {user.bio}</p>
-    </div>
+        <p>Instrument: {user.primary_instrument}</p>
+        <p>About me: {user.bio}</p>
+        <Link to={`/bandmate/user-profile/update/${encodeURIComponent(user._id.toString())}`}>
+          <button>Edit Profile</button>
+        </Link>
+      </div>
 
     );
 };
