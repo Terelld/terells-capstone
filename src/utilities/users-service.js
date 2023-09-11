@@ -1,5 +1,5 @@
 import * as usersAPI from './users-api';
-import sendRequest from './send-request';
+
 const BASE_URL = '/api/users';
 
 

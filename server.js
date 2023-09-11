@@ -3,15 +3,8 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 
-const User = require('./models/user');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 //always require and configure near top!!
-
-
-
-
 require('dotenv').config();
 
 require('./config/database');
@@ -39,15 +32,12 @@ const port = process.env.PORT || 3001;
 
 app.use('/api/users', require('./routes/api/users'))
 
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 
-app.get('/api/user/:userId', async (req, res) => {
-  const userId = req.params.userId;
-  const user = await db.getUserById(userId);
-  res.json(user);
-});
+
 	
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`)

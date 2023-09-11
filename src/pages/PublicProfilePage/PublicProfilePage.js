@@ -3,25 +3,36 @@ import { useState, useEffect } from 'react';
 
 
 
-export default function PublicProfilePage({ userData, setUserData }) {
+export default function PublicProfilePage() {
     const { userId } = useParams();
-  
+    const [userData, setUserData] = useState(null); 
+    console.log(userData);
+    
     const fetchUserData = async () => {
+      
       try {
         const response = await fetch(`/api/users/${userId}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        console.log('This is the data in fetch', data);
         setUserData(data);
+        console.log('data:', data);
+        console.log('userId:', userId);
+
       } catch (error) {
         console.error(error);
       }
     };
   
     useEffect(() => {
-      fetchUserData();
-    }, [userId]);
+      if (userId) {
+        fetchUserData();
+      }
+    }, [ ]);
+
+    
   
     return (
       <div>
@@ -33,6 +44,8 @@ export default function PublicProfilePage({ userData, setUserData }) {
         <p>Instrument: {userData?.primary_instrument}</p>
         <p>About me... {userData?.bio}</p>
       </div>
+
+
     );
   };
 
