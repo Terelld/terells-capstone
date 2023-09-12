@@ -3,6 +3,7 @@ import { login } from '../../utilities/users-service';
 
 
 
+
 export default class SignInForm extends Component {
   constructor() {
     super();
@@ -36,7 +37,7 @@ export default class SignInForm extends Component {
     const { credentials } = this.state;
 
     return (
-      <form onSubmit={this.handleLoginSubmit}>
+      <form   onSubmit={this.handleLoginSubmit}>
         <label htmlFor="email">Email:</label>
         <input
           type="text"
@@ -65,7 +66,7 @@ export default class SignInForm extends Component {
           }
         />
 
-        <button type="submit">Login</button>
+        <button className="button" type="submit">Login</button>
       </form>
     );
   }

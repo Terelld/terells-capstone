@@ -14,6 +14,7 @@ export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`);
 }
 
-export async function updateUserData(updatedUserData) {
-    return sendRequest(BASE_URL, 'POST', updatedUserData);
+export async function updateUserData(userId, updatedUserData) {
+
+    return sendRequest(`${BASE_URL}/${userId}`, 'PUT', updatedUserData);
 }

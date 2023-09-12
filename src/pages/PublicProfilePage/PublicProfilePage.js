@@ -21,6 +21,24 @@ export default function PublicProfilePage() {
         console.error(error);
       }
     };
+
+    function calculateAge(dateOfBirth) {
+      const dob = new Date(dateOfBirth);
+      const today = new Date();
+      
+      let age = today.getFullYear() - dob.getFullYear();
+      const monthDiff = today.getMonth() - dob.getMonth();
+      
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+      
+      return age;
+    }
+    
+    // const dateOfBirth = '1990-05-15'; // Replace with the actual date of birth
+    // const age = calculateAge(dateOfBirth);
+    // console.log(`Age: ${age}`);
   
     useEffect(() => {
       if (userId) {
@@ -33,9 +51,9 @@ export default function PublicProfilePage() {
     return (
       <div>
         {/* ? this operator avoids an error whenuserData isn't availalbe. */}
-        <h1>Member Profile</h1>
-        <p>Name: {userData?.name}</p>
-        <p>DOB: {userData?.dob}</p>
+        
+        <h1>Meet, {userData?.name}!</h1>
+        <p>Age: {userData ? calculateAge(userData.dob) : 'N/A'}</p>
         <p>City: {userData?.city}</p>
         <p>Instrument: {userData?.primary_instrument}</p>
         <p>About me... {userData?.bio}</p>

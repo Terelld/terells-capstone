@@ -12,6 +12,14 @@ export async function signUp(userData) {
     return getUser();
 } 
 
+export async function getUserData(userId) {
+    const response = await fetch(`/api/users/${userId}`);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return await response.json();
+}
+
 export async function updateUserData(updatedUserData) {
     try {
       const response = await usersAPI.updateUserData(updatedUserData);
@@ -25,7 +33,6 @@ export async function updateUserData(updatedUserData) {
       throw new Error('Update failed: ' + error.message);
     }
   }
-
 
 
 export async function login(credentials) {

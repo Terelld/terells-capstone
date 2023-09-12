@@ -17,18 +17,31 @@ export default function UserProfilePage({ user, setUser }) {
    
     const fetchUserData = async () => {
         try {
-            const response = await fetch(`/api/users/${userId}`); // Replace with your API endpoint
+            const response = await fetch(`http://localhost:3001/api/users/${userId}`); 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            setUserData(data); // Update user data in state
+            setUserData(data); 
         } catch (error) {
             console.error(error);
         }
     };
 
-    // Fetch user data when the component mounts
+    function calculateAge(dateOfBirth) {
+        const dob = new Date(dateOfBirth);
+        const today = new Date();
+        
+        let age = today.getFullYear() - dob.getFullYear();
+        const monthDiff = today.getMonth() - dob.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+          age--;
+        }
+        
+        return age;
+      }
+
     useEffect(() => {
         fetchUserData();
     }, [userId, user.primary_instrument]); 
@@ -38,12 +51,11 @@ export default function UserProfilePage({ user, setUser }) {
 
     return (
         <div>
-        <h1>My Profile</h1>
-        <p>Name: {user.name}</p>
-        <p>DOB: {user.dob}</p>
+        <h1>Meet, {user.name}!</h1>
+        <p>Age: {user ? calculateAge(user.dob) : 'N/A'}</p>
         <p>City: {user.city}</p>
         <p>Instrument: {user.primary_instrument}</p>
-        <p>About me: {user.bio}</p>
+        <p class="flow-text">About me: {user.bio}</p>
         <Link to={`/bandmate/user-profile/update/${encodeURIComponent(user._id.toString())}`}>
           <button>Edit Profile</button>
         </Link>

@@ -1,6 +1,9 @@
 import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
 
+
+
+
 import CitiesAutoComplete from '../CitiesAutoComplete/CitiesAutoComplete';
 
 const userInput = {
@@ -81,7 +84,7 @@ export default class SignUpForm extends Component {
         })
     }
 
-    handlePrimartyInstrumentChange = (evt) => {
+    handlePrimaryInstrumentChange = (evt) => {
       this.setState({
         primary_instrument: evt.target.value,
       });
@@ -133,11 +136,11 @@ export default class SignUpForm extends Component {
                 
 
                 <label>Instrument:</label>
-                <select
+                <select className="dropdown-content"
                   id="primary_instrument"
                   name="primary_instrument"
                   value={this.state.instrument}
-                  onChange={this.handlePrimartyInstrumentChange}
+                  onChange={this.handlePrimaryInstrumentChange}
                   disabled={false}
                   required
                 >
@@ -207,7 +210,7 @@ export default class SignUpForm extends Component {
                   onChange={this.handleChange} 
                   required 
                   />
-                <button type="submit" disabled={disable}>SIGN UP</button>
+                <button className="button" type="submit" disabled={disable}>SIGN UP</button>
               </form>
             </div>
             <p className="error-message">&nbsp;{this.state.error}</p>

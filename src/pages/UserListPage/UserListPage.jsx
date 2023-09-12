@@ -25,7 +25,7 @@ export default function UserListPage() {
     return (
 
       <div>
-      <h1>User List</h1>
+      <h1>BandMate Member List</h1>
       <div className="user-list">
         {loading ? (
           <p>Loading...</p>

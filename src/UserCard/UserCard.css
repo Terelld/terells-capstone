@@ -7,21 +7,37 @@
     height: 300px;
     background-size: cover;
     background-position: center;
-    color: white;
+    color: black;
     padding: 1rem;
     border-radius: 8px;
     margin: 0.5rem;
     transition: transform 0.3s;
     cursor: pointer;
     opacity: 3;
+    border-color: black;
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
   }
   
-  .movie-details {
-    color: white;
-  }
+  
   
   .user-card:hover {
     transform: scale(1.05);
     opacity: 0.8; /* Adjust opacity on hover */
   }
+
+  /* .card-panel {
+    color: black;
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    padding: 24px;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 2px;
+    background-color: green;
+    border-color: black;
+  } */
   

@@ -27,7 +27,7 @@ export default function UserCard({ user, setUser }) {
     }, [userId]); 
     return (
     <div className="user-card">
-        <p>Name: {user.name}</p>
+        <h3>Name: {user.name}</h3>
         <p>City: {user.city}</p>
         <p>Instument: {user.primary_instrument}</p>
         {/* {user.secondary_instrument && (

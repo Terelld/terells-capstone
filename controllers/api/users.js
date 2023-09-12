@@ -8,6 +8,7 @@ module.exports = {
     login,
     checkToken,
     updateProfile,
+    editProfile,
 
 }
 
@@ -59,21 +60,44 @@ function createJWT(user) {
     )
 }
 
-const User = require('../models/user');
+
+
 
 async function updateProfile(req, res) {
-  const userId = req.params.userId;
-  const newData = req.body; // The updated profile data from the request body
-
   try {
-    // Find the user by ID and update their profile data
-    const updatedUser = await User.findByIdAndUpdate(userId, newData, { new: true });
+    const { userId } = req.params;
+    const updatedData = req.body; // This should contain the updated profile data
+    const updatedUser = await User.findByIdAndUpdate(userId, updatedData, { new: true });
 
-    // Return the updated user data as JSON
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
     res.json(updatedUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
+async function editProfile(updatedData) {
+  
+  try {
+    const response = await fetch(`/api/users/${userId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Failed to update user data');
+    }
+  } catch (error) {
+    console.error(error);
+    throw new Error('Failed to update user data');
   }
 }
 
