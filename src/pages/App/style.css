@@ -19,7 +19,7 @@ p {
   color: #26a69a;
 }
 
-.parallax-container {
+/* .parallax-container {
   min-height: 380px;
   line-height: 0;
   height: auto;
@@ -27,7 +27,7 @@ p {
 }
   .parallax-container .section {
     width: 100%;
-  }
+  } */
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -95,4 +95,44 @@ a {
 a:hover {
   color: lightgray; 
   
+}
+
+
+form {
+  max-width: 500px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+form button {
+  background-color: #0071CE; /* Match your navbar background color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #00579C; /* Darker shade when hovered */
 }

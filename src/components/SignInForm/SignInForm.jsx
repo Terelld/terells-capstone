@@ -37,7 +37,7 @@ export default class SignInForm extends Component {
     const { credentials } = this.state;
 
     return (
-      <form   onSubmit={this.handleLoginSubmit}>
+      <form className="form"  onSubmit={this.handleLoginSubmit}>
         <label htmlFor="email">Email:</label>
         <input
           type="text"

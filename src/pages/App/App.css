@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url('https://i.imgur.com/YzYd3v5.jpg');
+  background-size: cover; /* Adjust this based on your image and design needs */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* Other styles for your component */
+
   
 }
 

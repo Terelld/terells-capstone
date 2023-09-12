@@ -103,7 +103,7 @@ export default class SignUpForm extends Component {
         console.log(this.state.cities)
         return (
           <div>
-            <div className="user-card">
+            <div className="form">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
                 <label>Name</label>
                 <input 

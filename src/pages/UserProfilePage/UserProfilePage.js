@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import './UserProfilePage.css';
 
 
 export default function UserProfilePage({ user, setUser }) {
@@ -50,7 +51,7 @@ export default function UserProfilePage({ user, setUser }) {
 
 
     return (
-        <div>
+        <div className="page">
         <h1>Meet, {user.name}!</h1>
         <p>Age: {user ? calculateAge(user.dob) : 'N/A'}</p>
         <p>City: {user.city}</p>

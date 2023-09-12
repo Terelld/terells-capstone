@@ -10,9 +10,9 @@ import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import { useParams } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 
-
-import './style.css';
 import './App.css';
+import './style.css';
+
 
 
 
