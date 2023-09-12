@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const cors = require('cors'); 
 
 
 //always require and configure near top!!
@@ -10,15 +11,16 @@ require('dotenv').config();
 require('./config/database');
    
 const app = express();
+app.use(cors({ origin: 'http://localhost:3000' }));
 
    
 app.use(logger('dev'));
 app.use(express.json());
 
 
-app.get('/config/uscities.csv', (req, res) => {
-  res.sendFile(path.join(__dirname, 'config', 'uscities.csv'));
-});
+// app.get('/config/uscities.csv', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'config', 'uscities.csv'));
+// });
 
 
 

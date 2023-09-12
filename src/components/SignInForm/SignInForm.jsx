@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { login } from '../../utilities/users-service';
+// import { useNavigate } from "react-router-dom";
 
 
 
@@ -20,13 +21,13 @@ export default class SignInForm extends Component {
     e.preventDefault();
     const { credentials } = this.state;
     console.log("Credentials: ", credentials);
-
+    // const Navigate = useNavigate();
     try {
       const user = await login(credentials);
       console.log(user);
       this.props.setUser(user);
       
-
+    // Navigate('/bandmate/user-profile');
       
     } catch (error) {
       this.setState({ loginError: error.message });

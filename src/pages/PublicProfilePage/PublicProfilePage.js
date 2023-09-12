@@ -48,8 +48,8 @@ export default function PublicProfilePage() {
     return (
       <div>
         {/* ? this operator avoids an error whenuserData isn't availalbe. */}
-        
-        <h1>Meet, {userData?.name}!</h1>
+        <h1> <span style={{ color: 'blue' }}>{userData?.name}'s </span>Page!</h1>
+        {/* <h1>Meet, {userData?.name}!</h1> */}
         <p>Age: {userData ? calculateAge(userData.dob) : 'N/A'}</p>
         <p>City: {userData?.city}</p>
         <p>Genre: {userData?.genre}</p>

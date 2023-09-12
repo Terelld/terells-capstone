@@ -74,6 +74,7 @@ export function checkToken() {
 
 
 export async function deleteUserData(userId) {
+    const BASE_URL = 'http://localhost:3001/api/users';
     try {
       const success = await usersAPI.deleteUserData(userId);
       return success;

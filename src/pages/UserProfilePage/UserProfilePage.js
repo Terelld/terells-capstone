@@ -55,7 +55,7 @@ export default function UserProfilePage({ user, setUser }) {
 
     return (
         <div className="page"> 
-            <h1>Meet, <span style={{ color: 'blue' }}>{user.name}</span>!</h1>
+            <h1> <span style={{ color: 'blue' }}>{user.name}</span>'s Page!</h1>
             <p>Age: {user ? calculateAge(user.dob) : 'N/A'}</p>
             <p>City: {user.city}</p>
             <p>Genre: {user.genre}</p>

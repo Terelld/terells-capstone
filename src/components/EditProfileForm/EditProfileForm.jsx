@@ -13,6 +13,7 @@ export default class EditProfileForm extends Component {
             name: "",
             dob: "",
             city: "",
+            genre: "",
             primary_instrument: "",
             bio: "",
           },
@@ -31,6 +32,7 @@ export default class EditProfileForm extends Component {
                 name: user.name,
                 dob: user.dob,
                 city: user.city,
+                genre: user.genre,
                 primary_instrument: user.primary_instrument,
                 bio: user.bio,
               },
@@ -66,6 +68,8 @@ export default class EditProfileForm extends Component {
     
           const updatedUser = await updateUserData(userId, updatedData);
           console.log("Updated User Data:", updatedUser);
+
+        //   this.setState({ formData: updatedUser });
           
         } catch (error) {
             console.log(error);
@@ -106,6 +110,45 @@ export default class EditProfileForm extends Component {
                       onChange={this.handleChange}
                       required
                     />
+
+                    <label>Genre:</label>
+                    <select className="dropdown-content"
+                    id="genre"
+                    name="genre"
+                    value={this.state.formData.genre}
+                    onChange={this.handleGenreChange}
+                    disabled={false}
+                    required
+                    >
+                    <option value="">Select your genre!</option>
+                    <option value="Acoustic">Acoustic</option>
+                    <option value="Alternative">Alternative</option>
+                    <option value="Ambient">Ambient</option>
+                    <option value="Blues">Blues</option>
+                    <option value="Classical">Classical</option>
+                    <option value="Country">Country</option>
+                    <option value="Disco">Disco</option>
+                    <option value="Electronic">Electronic</option>
+                    <option value="Folk">Folk</option>
+                    <option value="Funk">Funk</option>
+                    <option value="Gospel">Gospel</option>
+                    <option value="Hip-Hop">Hip-Hop</option>
+                    <option value="Indie">Indie</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Latin">Latin</option>
+                    <option value="Metal">Metal</option>
+                    <option value="New Age">New Age</option>
+                    <option value="Opera">Opera</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Punk">Punk</option>
+                    <option value="R&B">R&B (Rhythm and Blues)</option>
+                    <option value="Rap">Rap</option>
+                    <option value="Reggae">Reggae</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Soul">Soul</option>
+                    <option value="Techno">Techno</option>
+                    <option value="World">World</option>
+                    </select>
                     
     
                     <label>Instrument:</label>
