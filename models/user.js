@@ -31,6 +31,10 @@ const userSchema = new Schema({
         type:String, 
         required: false
     },
+    genre: {
+        type: String,
+        required: false
+    },
     bio: {
         type:String, 
         required: true,

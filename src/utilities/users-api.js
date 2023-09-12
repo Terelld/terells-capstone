@@ -18,3 +18,7 @@ export async function updateUserData(userId, updatedUserData) {
 
     return sendRequest(`${BASE_URL}/${userId}`, 'PUT', updatedUserData);
 }
+
+export async function deleteUserData(userId) {
+    return sendRequest(`${BASE_URL}/${userId}`, 'DELETE');
+  }

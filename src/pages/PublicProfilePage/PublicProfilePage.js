@@ -36,10 +36,7 @@ export default function PublicProfilePage() {
       return age;
     }
     
-    // const dateOfBirth = '1990-05-15'; // Replace with the actual date of birth
-    // const age = calculateAge(dateOfBirth);
-    // console.log(`Age: ${age}`);
-  
+   
     useEffect(() => {
       if (userId) {
         fetchUserData();
@@ -55,7 +52,8 @@ export default function PublicProfilePage() {
         <h1>Meet, {userData?.name}!</h1>
         <p>Age: {userData ? calculateAge(userData.dob) : 'N/A'}</p>
         <p>City: {userData?.city}</p>
-        <p>Instrument: {userData?.primary_instrument}</p>
+        <p>Genre: {userData?.genre}</p>
+        <p>Instrument: {userData?.primary_instrument} </p>
         <p>About me... {userData?.bio}</p>
       </div>
 

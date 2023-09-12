@@ -29,6 +29,7 @@ export default function UserCard({ user, setUser }) {
     <div className="user-card">
         <h3>Name: {user.name}</h3>
         <p>City: {user.city}</p>
+        <p>Genre: {user.genre}</p>
         <p>Instument: {user.primary_instrument}</p>
         {/* {user.secondary_instrument && (
         <p>Secondary Instrument: {user.secondary_instrument}</p> */}

@@ -48,6 +48,8 @@ export default function UserProfilePage({ user, setUser }) {
         fetchUserData();
     }, [userId, user.primary_instrument]); 
 
+   
+
 
 
 
@@ -56,11 +58,19 @@ export default function UserProfilePage({ user, setUser }) {
             <h1>Meet, <span style={{ color: 'blue' }}>{user.name}</span>!</h1>
             <p>Age: {user ? calculateAge(user.dob) : 'N/A'}</p>
             <p>City: {user.city}</p>
+            <p>Genre: {user.genre}</p>
             <p>Instrument: {user.primary_instrument}</p>
             <p class="flow-text">About me: {user.bio}</p>
-            <Link to={`/bandmate/user-profile/update/${encodeURIComponent(user._id.toString())}`}>
-            <button>Edit Profile</button>
-            </Link>
+            <div>
+                <Link to={`/bandmate/user-profile/update/${encodeURIComponent(user._id.toString())}`}>
+                <button>Edit Profile</button> 
+                </Link>
+            </div>
+            <div>  
+                <Link to={`/bandmate/user-profile/delete/${encodeURIComponent(user._id.toString())}`}>
+                <button>Delete My profile</button>
+                </Link>
+            </div> 
       </div>
 
     );

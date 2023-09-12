@@ -73,4 +73,11 @@ export function checkToken() {
 }
 
 
-  
+export async function deleteUserData(userId) {
+    try {
+      const success = await usersAPI.deleteUserData(userId);
+      return success;
+    } catch (error) {
+      throw new Error('Delete user data failed: ' + error.message);
+    }
+  }

@@ -8,8 +8,7 @@ module.exports = {
     login,
     checkToken,
     updateProfile,
-    
-
+    deleteProfile,
 }
 
 
@@ -78,3 +77,17 @@ async function updateProfile(req, res) {
 }
 
 
+async function deleteProfile(req, res) {
+  try {
+    const { userId } = req.params;
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json({ message: 'Profile deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}

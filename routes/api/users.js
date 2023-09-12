@@ -4,15 +4,19 @@ const usersCtrl = require('../../controllers/api/users');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 const User = require('../../models/user.js');
 
+router.put('/:userId', ensureLoggedIn, usersCtrl.updateProfile);
+
+router.delete('/:userId',ensureLoggedIn, usersCtrl.deleteProfile);
+
 router.post('/', usersCtrl.create);
 
 router.post('/login', usersCtrl.login);
 
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
-router.put('/:userId', ensureLoggedIn, usersCtrl.updateProfile);
 
-// router.get('/:userId/edit', usersCtrl.editProfile);
+
+
 
 router.get('/', async (req, res) => {
   try {

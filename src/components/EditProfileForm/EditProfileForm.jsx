@@ -1,7 +1,10 @@
 import { Component, useState } from "react";
 import { updateUserData, getUserData } from "../../utilities/users-service";
 
+
+
 export default class EditProfileForm extends Component {
+    
     constructor(props) {
         super(props);
     
@@ -53,6 +56,7 @@ export default class EditProfileForm extends Component {
       };
     
       handleSubmit = async (e) => {
+        
         e.preventDefault();
         console.log('handleSubmit function is called');
         try {
@@ -62,6 +66,7 @@ export default class EditProfileForm extends Component {
     
           const updatedUser = await updateUserData(userId, updatedData);
           console.log("Updated User Data:", updatedUser);
+          
         } catch (error) {
             console.log(error);
           this.setState({ error: "Failed to update user data" });
