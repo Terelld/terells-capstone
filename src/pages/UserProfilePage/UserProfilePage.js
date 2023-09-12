@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './UserProfilePage.css';
 
 
+
 export default function UserProfilePage({ user, setUser }) {
     const { userId } = useParams();
     const [userData, setUserData] = useState(null); // State to store user data
@@ -51,15 +52,15 @@ export default function UserProfilePage({ user, setUser }) {
 
 
     return (
-        <div className="page">
-        <h1>Meet, {user.name}!</h1>
-        <p>Age: {user ? calculateAge(user.dob) : 'N/A'}</p>
-        <p>City: {user.city}</p>
-        <p>Instrument: {user.primary_instrument}</p>
-        <p class="flow-text">About me: {user.bio}</p>
-        <Link to={`/bandmate/user-profile/update/${encodeURIComponent(user._id.toString())}`}>
-          <button>Edit Profile</button>
-        </Link>
+        <div className="page"> 
+            <h1>Meet, <span style={{ color: 'blue' }}>{user.name}</span>!</h1>
+            <p>Age: {user ? calculateAge(user.dob) : 'N/A'}</p>
+            <p>City: {user.city}</p>
+            <p>Instrument: {user.primary_instrument}</p>
+            <p class="flow-text">About me: {user.bio}</p>
+            <Link to={`/bandmate/user-profile/update/${encodeURIComponent(user._id.toString())}`}>
+            <button>Edit Profile</button>
+            </Link>
       </div>
 
     );

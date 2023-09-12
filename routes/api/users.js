@@ -12,7 +12,7 @@ router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
 router.put('/:userId', ensureLoggedIn, usersCtrl.updateProfile);
 
-router.get('/:userId/edit', usersCtrl.editProfile);
+// router.get('/:userId/edit', usersCtrl.editProfile);
 
 router.get('/', async (req, res) => {
   try {

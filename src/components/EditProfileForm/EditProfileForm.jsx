@@ -72,7 +72,7 @@ export default class EditProfileForm extends Component {
         render() {
             return (
               <div>
-                <div className="user-card">
+                <div className="form">
                   <form autoComplete="off" onSubmit={this.handleSubmit}>
                     <label>Name</label>
                     <input 

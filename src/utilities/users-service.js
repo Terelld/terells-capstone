@@ -20,15 +20,13 @@ export async function getUserData(userId) {
     return await response.json();
 }
 
-export async function updateUserData(updatedUserData) {
+export async function updateUserData(userId, updatedUserData) {
+    console.log(updatedUserData);
     try {
-      const response = await usersAPI.updateUserData(updatedUserData);
+      const updatedUser = await usersAPI.updateUserData(userId, updatedUserData);
+
       
-      if (!response.success) {
-        throw new Error(response.message);
-      }
-  
-      return response.user;
+      return updatedUser;
     } catch (error) {
       throw new Error('Update failed: ' + error.message);
     }
