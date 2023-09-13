@@ -1,6 +1,6 @@
-# BandMate
+# BandMate - Connect, Collab, Create
 
-Bandmate is social media application that allows musicians to create profiles, connect with one another and create bands! The app is designed to make it easier to interact with other creatives and provide a space for music centered community.
+Welcome to Bandmate, the ultimate social media application designed exclusively for musicians and music enthusiasts! Bandmate is here to revolutionize the way musicians connect, collaborate, and create music together. Whether you're a solo artist looking to form a band or simply seeking like-minded individuals to share your musical journey with, Bandmate is your go-to platform.
 
 # Screenshot
 
