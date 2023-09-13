@@ -7,7 +7,7 @@ Bandmate is social media application that allows musicians to create profiles, c
 <img src="https://i.imgur.com/WIfAy0i.png">
 Home Screne
 
-<img src="https://i.imgur.com/b9PnLRV.png">
+<img src="https://i.imgur.com/bjuuMu9.png">
 View Members
 
 <img src="https://i.imgur.com/OKoKvnF.png">
