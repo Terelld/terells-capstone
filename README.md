@@ -4,16 +4,16 @@ Bandmate is social media application that allows musicians to create profiles, c
 
 # Screenshot
 
-<img src="https://imgur.com/a/h1aSg3f">
+<img src="https://i.imgur.com/GNtz6Gt.png">
 Home Screne
 
-<img src="https://imgur.com/b9PnLRV">
+<img src="https://i.imgur.com/b9PnLRV.png">
 View Members
 
-<img src="https://imgur.com/OKoKvnF">
+<img src="https://i.imgur.com/OKoKvnF.png">
 Update Profile
 
-<img src="https://imgur.com/KdvDGoL">
+<img src="https://i.imgur.com/KdvDGoL.png">
 Profile Page
 
 # Technologies Used
